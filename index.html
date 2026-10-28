@@ -682,46 +682,60 @@
             <div
               class="animate-item delay-4 flex flex-wrap items-center gap-4 pt-2"
             >
-              <button
-                onclick="goToSlide(3)"
+              <!-- Tombol Review CV Utama -->
+              <a
+                href="https://drive.google.com/drive/folders/1plVk7LSW8RUEWGo_sxoX27XA73EfbvSG?usp=sharing"
+                target="_blank"
+                rel="noopener noreferrer"
                 class="px-8 py-4 bg-amber-500 text-white rounded-full font-bold text-sm hover:bg-amber-600 transition-all shadow-xl shadow-amber-500/25 flex items-center gap-3 group"
               >
-                <span>Lihat Portofolio</span>
+                <span>Review CV</span>
                 <i
-                  class="fa-solid fa-arrow-right group-hover:translate-x-1 transition-transform"
+                  class="fa-solid fa-file-arrow-down group-hover:translate-y-0.5 transition-transform"
                 ></i>
-              </button>
-              <button
-                onclick="goToSlide(4)"
-                class="px-8 py-4 bg-white/80 backdrop-blur-md border border-amber-900/15 text-slate-800 rounded-full font-bold text-sm hover:bg-amber-50 transition-all shadow-sm"
-              >
-                Hubungi Saya
-              </button>
+              </a>
             </div>
           </div>
 
-          <!-- Kolom Foto Kanan (Diperbesar & Efek Sobekan Jelas) -->
+          <!-- Kolom Foto Kanan (Interaktif, Teks Tegak Lurus, & Masking Bersih) -->
           <div
-            class="lg:col-span-5 relative flex items-center justify-center animate-item delay-3"
+            class="lg:col-span-5 relative flex items-center justify-center animate-item delay-3 pt-6 cursor-pointer group select-none"
+            onclick="toggleInfoSystem(this)"
           >
-            <!-- Efek Background Huruf Transparan -->
+            <!-- Efek Background Teks (Tegak lurus, di area lengan, naik ke depan saat diklik) -->
             <div
-              class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none select-none z-0 leading-none"
+              class="absolute inset-0 flex flex-col items-center justify-center pt-24 pointer-events-none select-none z-10 leading-[0.85] text-center transition-all duration-500 ease-out opacity-25 group-hover:opacity-45 group-[.active-system]:!z-40 group-[.active-system]:!opacity-100 group-[.active-system]:scale-105"
             >
               <span
-                class="font-serif text-[110px] md:text-[140px] font-black text-outline-light tracking-tighter opacity-70"
-                >DATA</span
+                class="font-serif text-5xl md:text-6xl font-bold text-slate-900 tracking-wide uppercase drop-shadow-sm not-italic transition-transform duration-500 group-[.active-system]:-translate-y-2"
               >
+                Information
+              </span>
               <span
-                class="font-serif text-[90px] md:text-[115px] font-black text-amber-600/20 italic tracking-tighter"
-                >ANALYST</span
+                class="font-serif text-6xl md:text-7xl font-bold text-amber-600 tracking-wider uppercase drop-shadow-md not-italic mt-2 transition-transform duration-500 group-[.active-system]:translate-y-2"
               >
+                System
+              </span>
             </div>
 
-            <!-- Kontainer Foto & Label Nama -->
-            <div class="relative z-20 flex items-center gap-6">
+            <!-- Kontainer Foto Diperbesar dengan Masking Bersih -->
+            <div
+              class="relative z-20 flex flex-col items-center transition-transform duration-500 group-[.active-system]:scale-105"
+            >
               <div
-                class="w-[320px] h-[420px] md:w-[360px] md:h-[470px] overflow-hidden torn-paper transform hover:scale-105 transition-transform duration-700"
+                class="w-[370px] h-[480px] md:w-[420px] md:h-[540px] overflow-hidden transform transition-all duration-500 relative"
+                style="
+                  mask-image: radial-gradient(
+                    circle at center,
+                    black 70%,
+                    transparent 100%
+                  );
+                  -webkit-mask-image: radial-gradient(
+                    circle at center,
+                    black 70%,
+                    transparent 100%
+                  );
+                "
               >
                 <img
                   src="assets/fotouppp.png"
@@ -734,6 +748,12 @@
         </div>
       </section>
 
+      <!-- Script Pendukung Interaksi Klik -->
+      <script>
+        function toggleInfoSystem(element) {
+          element.classList.toggle("active-system");
+        }
+      </script>
       <!-- ==================== SLIDE 2: ABOUT ==================== -->
       <section class="presentation-slide px-8 lg:px-20 pt-16" data-index="1">
         <div
@@ -768,16 +788,7 @@
             <p
               class="animate-item delay-3 text-slate-600 text-base md:text-lg leading-relaxed text-justify"
             >
-              Lulusan S1 Sistem Informasi dengan pengalaman magang sebagai
-              bagian dari Tim Proyek TI di LPPM Universitas Cipasung
-              Tasikmalaya. Berpengalaman mengidentifikasi proses bisnis,
-              menganalisis kebutuhan pengguna, serta merancang solusi sistem
-              untuk mengotomatisasi proses bisnis. Memiliki kemampuan dalam
-              analisis, pengolahan, dan visualisasi data, serta terbiasa
-              mengelola dan menyajikan data secara teliti dan sistematis. Mampu
-              bekerja sesuai prosedur, berorientasi pada ketelitian, dan siap
-              mengembangkan kemampuan melalui pembelajaran serta pengalaman
-              kerja.
+              Lulusan S1 Sistem Informasi dengan IPK 3,83 yang memiliki kemampuan analitis serta ketertarikan pada pengolahan data dan optimalisasi proses bisnis. Memiliki pengalaman dalam analisis pola pembelian konsumen melalui penelitian tugas akhir, serta analisis proses bisnis dan kebutuhan pengguna melalui proyek sistem informasi selama perkuliahan dan magang di LPPM Universitas Cipasung Tasikmalaya. Didukung kemampuan dalam pengolahan dan visualisasi data menggunakan Python, Microsoft Excel, dan Power BI, serta penyusunan dokumentasi dan pengujian fungsional sistem. Teliti, analitis, dan sistematis, mampu bekerja sesuai prosedur, serta memiliki kemauan belajar dan berkembang melalui pengalaman kerja.
             </p>
           </div>
         </div>
