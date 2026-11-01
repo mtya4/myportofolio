@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Mutia Maharani, S.Kom — Portfolio</title>
+    <title>Portfolio | Mutia Maharani</title>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -668,7 +668,7 @@
             <p
               class="animate-item delay-3 text-slate-600 text-base md:text-lg leading-relaxed max-w-xl"
             >
-              Profesional di bidang
+              Memiliki minat di bidang
               <strong class="text-slate-900 font-semibold">Data Analyst</strong
               >,
               <strong class="text-slate-900 font-semibold"
@@ -1838,21 +1838,25 @@
 
       document.addEventListener("touchstart", (e) => {
         touchStartX = e.changedTouches[0].screenX;
-      });
-
+        touchStartY = e.changedTouches[0].screenY;
+      }, { passive: true });
+      
       document.addEventListener("touchend", (e) => {
-        touchEndX = e.changedTouches[0].screenX;
-        handleSwipe();
-      });
-
-      function handleSwipe() {
-        if (touchEndX < touchStartX - 50) {
-          nextSlide();
+        const touchEndX = e.changedTouches[0].screenX;
+        const touchEndY = e.changedTouches[0].screenY;
+      
+        const diffX = touchEndX - touchStartX;
+        const diffY = touchEndY - touchStartY;
+      
+        // Hanya navigasi jika gerakan benar-benar horizontal
+        if (Math.abs(diffX) > 70 && Math.abs(diffX) > Math.abs(diffY) * 1.5) {
+          if (diffX < 0) {
+            nextSlide();
+          } else {
+            prevSlide();
+          }
         }
-        if (touchEndX > touchStartX + 50) {
-          prevSlide();
-        }
-      }
+      }, { passive: true });  
 
       <!-- ==================== JAVASCRIPT UNTUK MODAL PROYEK 3 ==================== -->
       function openModalProyek3() {
